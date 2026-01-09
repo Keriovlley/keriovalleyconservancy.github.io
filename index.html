@@ -1,197 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kerio Valley Conservancy CBO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerio Valley Conservancy CBO</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 20px; }
 
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
+        header {
+            background: #2d5c2a;
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo { font-size: 1.8rem; font-weight: bold; }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 2rem; }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: #c8e6c9; }
 
-/* HEADER */
-header {
-  background: #2E8B57;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
+        .hero {
+            background: linear-gradient(rgba(45, 92, 42, 0.7), rgba(45, 92, 42, 0.9));
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+            margin-bottom: 3rem;
+            /* REMEMBER: Replace 'YOUR_IMAGE_FILENAME_HERE.jpg' with your actual image filename */
+           background-image: url("Screenshot 2026-01-05 213838.png");
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #ff9800;
+            color: #333;
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid #ff9800;
+        }
+        .cta-button:hover {
+            background: transparent;
+            color: #ff9800;
+        }
 
-/* NAVIGATION */
-nav {
-  background: #3CB371;
-  display: flex;
-  justify-content: center;
-  padding: 10px 0;
-}
+        section { margin-bottom: 3.5rem; }
+        h2 {
+            color: #2d5c2a;
+            border-bottom: 3px solid #c8e6c9;
+            padding-bottom: 0.7rem;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .card h3 { color: #2d5c2a; margin-bottom: 0.8rem; }
 
-nav a {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
-  cursor: pointer;
-}
+        #donate, #contact { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);}
+        .donation-method { margin-bottom: 1.8rem; }
+        .donation-method h3 { color: #d35400; }
 
-nav a:hover {
-  text-decoration: underline;
-}
+        footer {
+            background: #1e3a1e;
+            color: #ccc;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
 
-/* HERO BANNER */
-.hero {
-  max-width: 1200px;
-  margin: 20px auto;
-}
+        @media (max-width: 768px) {
+            .nav-links { margin-top: 1rem; width: 100%; justify-content: space-around;}
+            .nav-links li { margin: 0; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            h2 { font-size: 1.8rem; }
+        }
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerio Valley Conservancy CBO</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 20px; }
 
-.hero img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
+        header {
+            background: #2d5c2a;
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo { font-size: 1.8rem; font-weight: bold; }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 2rem; }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: #c8e6c9; }
 
-/* SECTIONS */
-.content-section {
-  display: none;
-  max-width: 1000px;
-  margin: auto;
-  padding: 40px 20px;
-}
+        .hero {
+            background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(45, 92, 42, 0.85));
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+            margin-bottom: 3rem;
+            background-image: url('Screenshot%202026-01-05%20213838.png');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #ff9800;
+            color: #333;
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid #ff9800;
+        }
+        .cta-button:hover {
+            background: transparent;
+            color: #ff9800;
+        }
 
-h2 {
-  color: #2E8B57;
-}
+        section { margin-bottom: 3.5rem; }
+        h2 {
+            color: #2d5c2a;
+            border-bottom: 3px solid #c8e6c9;
+            padding-bottom: 0.7rem;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .card h3 { color: #2d5c2a; margin-bottom: 0.8rem; }
 
-/* DONATE BOX */
-.donate-box {
-  background: #f4f4f4;
-  padding: 20px;
-  border-left: 6px solid #FF4500;
-}
+        #donate, #contact { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);}
+        .donation-method { margin-bottom: 1.8rem; }
+        .donation-method h3 { color: #d35400; }
 
-/* FOOTER */
-footer {
-  background: #2E8B57;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
-</style>
+        footer {
+            background: #1e3a1e;
+            color: #ccc;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { margin-top: 1rem; width: 100%; justify-content: space-around;}
+            .nav-links li { margin: 0; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            h2 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
-
 <body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">Kerio Valley Conservancy</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#work">What We Do</a></li>
+                    <li><a href="#impact">Our Impact</a></li>
+                    <li><a href="#donate">Donate</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-<header>
-  <h1>Kerio Valley Conservancy CBO</h1>
-  <p>Restoring ecosystems & empowering communities</p>
-</header>
+    <section class="hero">
+        <div class="container">
+            <h1>Restoring Ecosystems & Empowering Communities</h1>
+            <p>Kerio Valley is a vital but fragile landscape in Kenya where people, nature, and livelihoods are closely connected, yet years of deforestation, unsustainable farming, recurrent fires, and climate stress have led to degraded soils, drying rivers, biodiversity loss, and rising poverty. Restoring these landscapes is transforming the valley through community-led agroforestry, reforestation, soil and water conservation, and climate-resilient farming that rebuilds ecosystems while improving household incomes. These efforts protect water catchments, reduce landslides and flood risks, enhance food security, and create sustainable livelihoods, especially for women and youth. By restoring nature while strengthening local economies, Kerio Valley directly advances the Sustainable Development Goals, including SDG 1 on No Poverty, SDG 2 on Zero Hunger, SDG 6 on Clean Water, SDG 13 on Climate Action, and SDG 15 on Life on Land, offering donors a high-impact opportunity to deliver lasting environmental recovery and human well-being through locally owned, scalable solutions.</p>
+            <a href="#donate" class="cta-button">Support Our Work</a>
+        </div>
+    </section>
 
-<nav>
-  <a onclick="showHome()">Home</a>
-  <a onclick="showSection('about')">About Us</a>
-  <a onclick="showSection('what')">What We Do</a>
-  <a onclick="showSection('impact')">Impact</a>
-  <a onclick="showSection('donate')">Donate Now</a>
-  <a onclick="showSection('team')">Our Team</a>
-  <a onclick="showSection('contact')">Contact Us</a>
-</nav>
+    <main class="container">
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Kerio Valley Conservancy (KVC) is a community-based organization dedicated to addressing poverty, climate vulnerability, and environmental degradation in the Kerio Valley through sustainable, community-led solutions.</p>
+        </section>
 
-<!-- LANDING PAGE / HOME -->
-<div id="home" class="hero">
-  <img src="kvc-banner.png" alt="Kerio Valley Conservancy Banner">
-</div>
+        <section id="work">
+            <h2>What We Do</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Agroforestry</h3>
+                    <p>Promoting tree planting and sustainable land use practices to restore soil health and biodiversity.</p>
+                </div>
+                <div class="card">
+                    <h3>Climate-Smart Agriculture</h3>
+                    <p>Empowering farmers with techniques to improve yields while adapting to climate change.</p>
+                </div>
+                <div class="card">
+                    <h3>Environmental Conservation</h3>
+                    <p>Protecting and restoring natural ecosystems and watersheds in the valley.</p>
+                </div>
+                <div class="card">
+                    <h3>Sustainable Livelihoods</h3>
+                    <p>Creating economic opportunities that are in harmony with environmental stewardship.</p>
+                </div>
+            </div>
+        </section>
 
-<!-- ABOUT -->
-<section id="about" class="content-section">
-  <h2>About Us</h2>
-  <p>
-    Kerio Valley Conservancy (KVC) is a community-based organization addressing
-    poverty, climate vulnerability, and environmental degradation in the Kerio Valley.
-  </p>
-</section>
+        <section id="impact">
+            <h2>Our Impact</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Improved Food Security</h3>
+                    <p>Helping communities achieve stable and sufficient food production.</p>
+                    <p><br><strong>Food security in Kerio Valley</strong> is closely linked to the health of the landscape, yet land degradation, erratic rainfall, and reliance on low-value, climate-sensitive crops have left many households vulnerable to hunger and unstable incomes. Community-led restoration and climate-smart agriculture are strengthening food systems by improving soil fertility, conserving water, and diversifying production through agroforestry, resilient crops, and sustainable livestock practices. These approaches increase yields, extend growing seasons, and create year-round income while reducing the risk of crop failure during droughts or floods. By restoring productive land and empowering farmers with sustainable practices, Kerio Valley is advancing SDG 2 on Zero Hunger, SDG 1 on No Poverty, SDG 12 on Responsible Consumption and Production, and SDG 13 on Climate Action, offering donors a practical, high-impact pathway to build resilient food systems that nourish communities today and safeguard livelihoods for future generations.</p>
+                </div>
+                <div class="card">
+                    <h3>Restored Landscapes</h3>
+                    <p>Reclaiming degraded lands and bringing back native flora and fauna.</p>
+                </div>
+                <div class="card">
+                    <h3>Empowered Communities</h3>
+                    <p>Building local capacity for long-term resilience and self-reliance.</p>
+                    <p><br><strong>Empowered communities</strong> are at the heart of sustainable change in Kerio Valley, where local people are moving from vulnerability to leadership in managing their natural resources and livelihoods. Through inclusive participation, skills development, and support to community groups, women, youth, and smallholder farmers are strengthening local governance, adopting climate-resilient practices, and driving landscape restoration and food security initiatives. This community-led approach builds ownership, accountability, and long-term sustainability while creating income opportunities and improving access to essential services. By placing communities at the center of decision-making and action, Kerio Valley advances SDG 5 on Gender Equality, SDG 8 on Decent Work, SDG 10 on Reduced Inequalities, SDG 11 on Sustainable Communities, and SDG 16 on Strong Institutions, offering donors a trusted, scalable model where empowered people deliver lasting social, economic, and environmental impact.</p>
+                </div>
+                <div class="card">
+                    <h3>Increased Incomes</h3>
+                    <p>Boosting household earnings through sustainable enterprises.</p>
+                    <p><br><strong>In Kerio Valley, increased income and market access</strong> go hand in hand as communities shift from low-return, climate-vulnerable farming to more sustainable and profitable livelihoods. By organizing farmers into cooperatives, communities strengthen collective action, adopt climate-resilient practices, and gain access to training, inputs, and financial services, while linkages to local and regional markets ensure reliable sales and fair prices for high-value crops like coffee, fruit trees, and sustainable livestock. This integrated approach not only boosts household incomes year-round but also reduces poverty, strengthens resilience to climate shocks, and allows families to invest in food, education, and health. By connecting restored landscapes to thriving markets, Kerio Valley advances SDG 1 on No Poverty, SDG 2 on Zero Hunger, SDG 8 on Decent Work and Economic Growth, SDG 9 on Industry and Innovation, and SDG 12 on Responsible Consumption and Production, offering donors a high-impact opportunity to create sustainable, market-driven livelihoods while improving environmental health.</p>
+                </div>
+            </div>
+        </section>
 
-<!-- WHAT WE DO -->
-<section id="what" class="content-section">
-  <h2>What We Do</h2>
-  <p>
-    We promote agroforestry, climate-smart agriculture, environmental conservation,
-    and sustainable livelihoods.
-  </p>
-</section>
+        <section id="donate">
+            <h2>Support Our Mission</h2>
+            <p>Your donation directly funds our projects in agroforestry, conservation, and community empowerment.</p>
+            <div class="donation-method">
+                <h3>Bank Transfer</h3>
+                <p><strong>Account Name:</strong> Kerio Valley Conservancy CBO<br>
+                <strong>Account Number:</strong> 1005127000681<br>
+                <strong>Bank:</strong> Middle East Bank (K) Limited</p>
+            </div>
+            <div class="donation-method">
+                <h3>M-Pesa PayBill</h3>
+                <p><strong>PayBill Number:</strong> 839900<br>
+                <strong>Account Number:</strong> 1005127000681</p>
+            </div>
+        </section>
 
-<!-- IMPACT -->
-<section id="impact" class="content-section">
-  <h2>Our Impact</h2>
-  <p>
-    Improved food security, restored landscapes, empowered communities,
-    and increased household incomes.
-  </p>
-</section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Get in touch to learn more, partner with us, or visit our projects.</p>
+            <p><strong>Email:</strong> info@keriovalleysconservancy.org<br>
+            <strong>Phone:</strong> +254 728 879 957<br>
+            <strong>Location:</strong> Kerio Valley, Kenya</p>
+        </section>
+    </main>
 
-<!-- DONATE -->
-<section id="donate" class="content-section">
-  <h2>Donate Now</h2>
-  <div class="donate-box">
-    <p><strong>Bank Transfer</strong></p>
-    <p>
-      Account Number: <strong>1005127000681</strong><br>
-      Bank: <strong>Middle East Bank (K) Limited</strong>
-    </p>
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Kerio Valley Conservancy CBO. All rights reserved.</p>
+            <p>Committed to a greener, more prosperous Kerio Valley.</p>
+        </div>
+    </footer>
 
-    <p><strong>M-Pesa PayBill</strong></p>
-    <p>
-      PayBill: <strong>839900</strong><br>
-      Account Number: <strong>1005127000681</strong>
-    </p>
-  </div>
-</section>
-
-<!-- TEAM -->
-<section id="team" class="content-section">
-  <h2>Our Team</h2>
-  <p>
-    Our team includes conservationists, community leaders,
-    and agricultural extension professionals.
-  </p>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="content-section">
-  <h2>Contact Us</h2>
-  <p>
-    Email: info@keriovalleysconservancy.org<br>
-    Phone: +254 XXX XXX XXX<br>
-    Location: Kerio Valley, Kenya
-  </p>
-</section>
-
-<footer>
-  <p>&copy; 2026 Kerio Valley Conservancy CBO</p>
-</footer>
-
-<script>
-function hideAllSections() {
-  const sections = document.getElementsByClassName("content-section");
-  for (let i = 0; i < sections.length; i++) {
-    sections[i].style.display = "none";
-  }
-}
-
-function showSection(id) {
-  document.getElementById("home").style.display = "none";
-  hideAllSections();
-  document.getElementById(id).style.display = "block";
-}
-
-function showHome() {
-  hideAllSections();
-  document.getElementById("home").style.display = "block";
-}
-</script>
-
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
+
