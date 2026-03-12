@@ -1,426 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Kerio Valley Conservancy CBO</title>
-
 <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    scroll-behavior: smooth;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 3.5cm; /* leave space for fixed footer */
+  }
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+  /* Header & Nav */
+  header {
+    background: #2d5c2a;
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  nav .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+  }
+  .nav-links li {
+    margin-left: 0;
+  }
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover {
+    color: #c8e6c9;
+  }
+  .home-icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 1.5rem;
+  }
+  .home-icon {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+  }
+  .home-text {
+    color: white;
+    font-size: 0.9rem;
+    margin-top: 0.15rem;
+    user-select: none;
+  }
+  .support-button {
+    background: #ff9800;
+    color: #333;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s;
+    border: 2px solid #ff9800;
+    white-space: nowrap;
+  }
+  .support-button:hover {
+    background: transparent;
+    color: #ff9800;
+  }
 
-body{
-font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
-line-height:1.6;
-color:#333;
-background:#f8f9fa;
-scroll-behavior:smooth;
-}
+  /* Hero */
+  .hero {
+    background: linear-gradient(rgba(45, 92, 42, 0.7), rgba(45, 92, 42, 0.9)),
+      url('kerio.jpg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    color: black;
+    text-align: center;
+    padding: 5rem 1rem;
+    margin-bottom: 3rem;
+  }
+  .hero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  .hero p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+  }
 
-.container{
-width:90%;
-max-width:1200px;
-margin:auto;
-padding:20px;
-}
+  /* Sections */
+  section {
+    margin-bottom: 3.5rem;
+    display: none; /* hide all by default */
+  }
+  section.active {
+    display: block; /* show only active */
+  }
+  h2 {
+    color: #2d5c2a;
+    border-bottom: 3px solid #c8e6c9;
+    padding-bottom: 0.7rem;
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+  }
 
-/* HEADER */
+  /* Card grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  .card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.8rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  .card h3 {
+    color: #2d5c2a;
+    margin-bottom: 0.8rem;
+  }
 
-header{
-background:#2d5c2a;
-color:white;
-padding:1rem 0;
-position:sticky;
-top:0;
-z-index:1000;
-box-shadow:0 2px 5px rgba(0,0,0,0.1);
-}
+  /* Members carousel */
+  .members-carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    scroll-behavior: smooth;
+  }
+  .member {
+    flex: 0 0 auto;
+    width: 250px;
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  .member img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .member h4 {
+    margin-top: 0.5rem;
+    color: #2d5c2a;
+  }
 
-.logo{
-font-size:1.8rem;
-font-weight:bold;
-text-align:center;
-margin-bottom:10px;
-}
+  /* Donor reports */
+  .donor-report {
+    background: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  }
 
-.nav-container{
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-}
+  /* Support Our Work Section */
+  #support-work {
+    background: white;
+    padding: 2rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  }
+  #support-work h2 {
+    margin-bottom: 1rem;
+  }
+  #support-work h3 {
+    color: #d35400;
+    margin-top: 1.5rem;
+  }
 
-.nav-links{
-display:flex;
-list-style:none;
-gap:20px;
-}
+  /* Footer */
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .footer-bar {
+    background: #2d5c2a;
+    height: 2cm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+  }
 
-.nav-links a{
-color:white;
-text-decoration:none;
-font-weight:500;
-}
-
-.nav-links a:hover{
-color:#c8e6c9;
-}
-
-.support-button{
-background:#ff9800;
-color:#333;
-padding:8px 18px;
-border-radius:40px;
-text-decoration:none;
-font-weight:bold;
-border:2px solid #ff9800;
-}
-
-.support-button:hover{
-background:transparent;
-color:#ff9800;
-}
-
-/* HERO */
-
-.hero{
-background:linear-gradient(rgba(45,92,42,0.7),rgba(45,92,42,0.9)), url('landingpage.jpg');
-background-size:cover;
-background-position:center;
-color:white;
-text-align:center;
-padding:100px 20px;
-}
-
-.hero h1{
-font-size:3rem;
-margin-bottom:10px;
-}
-
-.hero p{
-font-size:1.3rem;
-}
-
-/* SECTIONS */
-
-section{
-margin-bottom:60px;
-}
-
-h2{
-color:#2d5c2a;
-border-bottom:3px solid #c8e6c9;
-padding-bottom:10px;
-margin-bottom:20px;
-text-align:center;
-}
-
-/* VISION MISSION */
-
-.vision,.mission{
-background:#f2f2f2;
-padding:20px;
-border-radius:10px;
-margin:30px 0;
-text-align:center;
-}
-
-/* CARD GRID */
-
-.card-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-margin-top:20px;
-}
-
-.card{
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
-}
-
-.card h3{
-color:#2d5c2a;
-margin-bottom:10px;
-}
-
-/* MEMBERS */
-
-.members-carousel{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-justify-content:center;
-}
-
-.member{
-width:220px;
-background:white;
-border-radius:10px;
-padding:15px;
-box-shadow:0 5px 10px rgba(0,0,0,0.1);
-text-align:center;
-}
-
-.member img{
-width:100%;
-height:200px;
-object-fit:cover;
-border-radius:10px;
-}
-
-.member h4{
-margin-top:8px;
-color:#2d5c2a;
-}
-
-/* DONOR REPORTS */
-
-.donor-report{
-background:white;
-padding:15px;
-margin-bottom:10px;
-border-radius:10px;
-box-shadow:0 5px 10px rgba(0,0,0,0.05);
-}
-
-/* FOOTER */
-
-footer{
-background:#2d5c2a;
-color:white;
-text-align:center;
-padding:20px;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:2rem;
-}
-
-.hero p{
-font-size:1rem;
-}
-
-.members-carousel{
-flex-direction:column;
-align-items:center;
-}
-
-.member{
-width:90%;
-max-width:300px;
-}
-
-.card-grid{
-grid-template-columns:1fr;
-}
-
-}
-
+  /* Responsive */
+  @media (max-width: 768px) {
+    .nav-links {
+      margin-top: 0.5rem;
+      width: 100%;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .nav-links li {
+      margin: 0;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+    }
+    .member {
+      width: 200px;
+    }
+  }
 </style>
 </head>
-
-
 <body>
 
 <header>
+  <div class="logo">Kerio Valley Conservancy CBO</div>
+  <nav>
+    <div class="nav-container container">
+      <a href="#hero" class="home-icon-wrapper" id="home-link">
+        <span class="home-icon">&#8962;</span>
+        <span class="home-text">Home</span>
+      </a>
 
-<div class="logo">Kerio Valley Conservancy CBO</div>
+      <ul class="nav-links">
+        <li><a href="#about" data-target="about">About Us</a></li>
+        <li><a href="#work" data-target="work">What We Do</a></li>
+        <li><a href="#members" data-target="members">Members</a></li>
+        <li><a href="#donor-reports" data-target="donor-reports">Donor Reports</a></li>
+        <li><a href="#contact" data-target="contact">Contact</a></li>
+      </ul>
 
-<div class="nav-container container">
-
-<ul class="nav-links">
-<li><a href="#hero">Home</a></li>
-<li><a href="#about">About Us</a></li>
-<li><a href="#work">What We Do</a></li>
-<li><a href="#members">Members</a></li>
-<li><a href="#donor">Donor Reports</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-
-<a href="#support" class="support-button">Support Our Work</a>
-
-</div>
-
+      <a href="#support-work" class="support-button" id="support-button">Support Our Work</a>
+    </div>
+  </nav>
 </header>
 
-
-<section class="hero" id="hero">
-
-<h1>Restoring Ecosystems & Empowering Communities</h1>
-<p>Kerio Valley, Kenya</p>
-
+<section class="hero active" id="hero">
+  <div class="container">
+    <h1>Restoring Ecosystems & Empowering Communities</h1>
+    <p>Kerio Valley.</p>
+  </div>
 </section>
 
+<main class="container">
 
-<section id="about" class="container">
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Kerio Valley Conservancy (KVC) is a community-based organization dedicated to addressing poverty, climate vulnerability, and environmental degradation along the hanging Kerio Valley through sustainable, community-led solutions.Kerio Valley is a vital but fragile landscape in Kenya where people, nature, and livelihoods are closely connected, yet years of deforestation, unsustainable farming, recurrent fires, and climate stress have led to degraded soils, drying rivers, biodiversity loss, and rising poverty. Restoring these landscapes is transforming the valley through community-led agroforestry, reforestation, soil and water conservation, and climate-resilient farming that rebuilds ecosystems while improving household incomes</p>
+  </section>
 
-<h2>About Us</h2>
+  <section id="work">
+    <h2>What We Do</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3><a href="#agroforestry">Agroforestry</a></h3>
+        <p>Promoting tree planting and sustainable land use practices to restore soil health and biodiversity.</p>
+      </div>
+      <div class="card">
+        <h3><a href="#climate">Climate-Smart Agriculture</a></h3>
+        <p>Empowering farmers with techniques to improve yields while adapting to climate change.</p>
+      </div>
+      <div class="card">
+        <h3><a href="#conservation">Environmental Conservation</a></h3>
+        <p>Protecting and restoring natural ecosystems and watersheds in the valley.</p>
+      </div>
+      <div class="card">
+        <h3><a href="#livelihoods">Sustainable Livelihoods</a></h3>
+        <p>Creating economic opportunities that are in harmony with environmental stewardship.</p>
+      </div>
+    </div>
+  </section>
 
-<p>
-Kerio Valley Conservancy (KVC) is a community-based organization dedicated to addressing poverty,
-climate vulnerability, and environmental degradation along the Kerio Valley through sustainable
-community-led solutions.
-</p>
+  <section id="members">
+    <h2>Our Members</h2>
+    <div class="members-carousel">
+      <div class="member">
+        <img src="Wesley.jpg" alt="Community LiasonOfficer" />
+        <h4>Mr. Wesley Mutai Community Liason Officer</h4>
+      </div>
+      <div class="member">
+        <img src="sila.jpg" alt="Member 2" />
+        <h4>Silah Kosgei  Director Field Team (Training Lead)
+</h4>
+      </div>
+      <div class="member">
+        <img src="julie.jpg" alt="Member 3" />
+        <h4>Julie Jemutai </br Project Director>
+</h4>
+      </div>
+      <div class="member">
+        <img src="mercy.jpg" alt="Member 4" />
+        <h4>Mercy Kiptoo </br  Marketing Director (Cooperatives & Framers)br>
+</h4>
+      </div>
+    </div>
+  </section>
 
-<div class="vision">
-<h3>Our Vision</h3>
-<p>To be a leading human and environment centered CBO providing inclusive and sustainable programs that improve community wellbeing.</p>
-</div>
+  <section id="donor-reports">
+    <h2>Donor Reports</h2>
+    <div class="donor-report"><a href="report1.pdf" target="_blank">2025 Annual Report</a></div>
+    <div class="donor-report"><a href="report2.pdf" target="_blank">2024 Annual Report</a></div>
+  </section>
 
-<div class="mission">
-<h3>Our Mission</h3>
-<p>To protect people and the environment by promoting agroforestry and alternative livelihoods that help address climate change.</p>
-</div>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Email:</strong> info@keriovalleysconservancy.org<br />
+      <strong>Phone:</strong> +254 728 879 957<br />
+      <strong>Location:</strong> Kerio Valley, Kenya</p>
+  </section>
 
-</section>
+  <section id="support-work">
+    <h2>Support Our Work</h2>
+    <h3>Bank Transfer</h3>
+    <p><strong>Account Number:</strong> 1005127000681<br />
+      <strong>Bank:</strong> Middle East Bank (K) Limited</p>
 
-
-<section id="work" class="container">
-
-<h2>What We Do</h2>
-
-<div class="card-grid">
-
-<div class="card">
-<h3>Agroforestry</h3>
-<p>Promoting tree planting and sustainable land use.</p>
-</div>
-
-<div class="card">
-<h3>Climate-Smart Agriculture</h3>
-<p>Helping farmers adapt to climate change.</p>
-</div>
-
-<div class="card">
-<h3>Environmental Conservation</h3>
-<p>Restoring ecosystems and protecting watersheds.</p>
-</div>
-
-<div class="card">
-<h3>Sustainable Livelihoods</h3>
-<p>Creating income opportunities for communities.</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section id="members" class="container">
-
-<h2>Our Members</h2>
-
-<div class="members-carousel">
-
-<div class="member">
-<img src="wesley.jpg">
-<h4>Mr. Wesley Mutai</h4>
-<p>Community Liaison Officer</p>
-</div>
-
-<div class="member">
-<img src="sila.jpg">
-<h4>Silah Kosgei</h4>
-<p>Director Field Team</p>
-</div>
-
-<div class="member">
-<img src="julie.jpg">
-<h4>Julie Jemutai</h4>
-<p>Project Coordinator</p>
-</div>
-
-<div class="member">
-<img src="nik.jpg">
-<h4>Nicholas Kibet</h4>
-<p>Advocacy Team Lead</p>
-</div>
-
-<div class="member">
-<img src="liz.jpg">
-<h4>Elizabeth Munene</h4>
-<p>Treasurer</p>
-</div>
-
-<div class="member">
-<img src="mercy.jpg">
-<h4>Mercy Kiptoo</h4>
-<p>Marketing Director</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section id="donor" class="container">
-
-<h2>Donor Reports</h2>
-
-<div class="donor-report">2026 Annual Report</div>
-<div class="donor-report">2025 Annual Report</div>
-<div class="donor-report">2024 Annual Report</div>
-
-</section>
-
-
-<section id="contact" class="container">
-
-<h2>Contact Us</h2>
-
-<p>
-Email: info@keriovalleysconservancy.org<br>
-Phone: +254 728 879 957<br>
-Location: Kerio Valley, Kenya
-</p>
-
-</section>
-
-
-<section id="support" class="container">
-
-<h2>Support Our Work</h2>
-
-<h3>Bank Transfer</h3>
-
-<p>
-Account Number: 1005127000681<br>
-Bank: Middle East Bank (K) Limited
-</p>
-
-<h3>M-Pesa PayBill</h3>
-
-<p>
-PayBill: 839900<br>
-Account: 1005127000681
-</p>
-
-</section>
-
+    <h3>M-Pesa PayBill</h3>
+    <p><strong>PayBill Number:</strong> 839900<br />
+      <strong>Account Number:</strong> 1005127000681</p>
+  </section>
+</main>
 
 <footer>
-
-<p>
-© <span id="year"></span> Kerio Valley Conservancy CBO
-</p>
-
+  <div class="footer-bar">
+    &copy; <span id="currentYear"></span> Kerio Valley Conservancy CBO. All rights reserved. &nbsp;&nbsp;|&nbsp;&nbsp;
+    Committed to a greener, more prosperous Kerio Valley
+  </div>
 </footer>
 
-
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  // Handle navigation to show only relevant section
+  const links = document.querySelectorAll('.nav-links a, #home-link, #support-button');
+  const sections = document.querySelectorAll('main section, .hero');
 
+  function showSection(id) {
+    sections.forEach((section) => {
+      if (section.id === id) {
+        section.classList.add('active');
+      } else {
+        section.classList.remove('active');
+      }
+    });
+  }
+
+  links.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = link.getAttribute('href').substring(1);
+      showSection(href);
+      // Scroll top smoothly
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // Show hero on initial load
+  showSection('hero');
+
+  // Set current year
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
