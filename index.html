@@ -99,58 +99,27 @@
   }
 
   /* Hero */
-.hero {
-  background: linear-gradient(rgba(45, 92, 42, 0.7), rgba(45, 92, 42, 0.9)),
-    url('landingpage.jpg');
-  background-size: cover;          /* Ensures image covers entire hero section */
-  background-position: center;     /* Centers image */
-  background-repeat: no-repeat;    /* Prevents tiling */
-  background-blend-mode: overlay;  /* Dark overlay effect */
-  color: white;                    /* Text contrasts with image */
-  text-align: center;
-  padding: 6rem 1rem;              /* Slightly more vertical padding */
-  margin-bottom: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;         /* Vertically centers content */
-  min-height: 80vh;                /* Makes hero at least 80% of viewport height */
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* stronger shadow for readability */
-}
-
-.hero p {
-  font-size: 1.2rem;
-  max-width: 700px;
-  margin: 0 auto 2rem;
-  line-height: 1.5;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-  .hero p {
-    font-size: 1rem;
-    padding: 0 1rem;
-  }
-}
-
-@media (max-width: 480px) {
   .hero {
-    padding: 4rem 1rem;
+    background: linear-gradient(rgba(45, 92, 42, 0.7), rgba(45, 92, 42, 0.9)),
+      url('kerio.jpg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    color: black;
+    text-align: center;
+    padding: 5rem 1rem;
+    margin-bottom: 3rem;
   }
   .hero h1 {
-    font-size: 1.8rem;
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   }
   .hero p {
-    font-size: 0.95rem;
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
   }
-}
 
   /* Sections */
   section {
@@ -315,25 +284,15 @@
 <section class="hero active" id="hero">
   <div class="container">
     <h1>Restoring Ecosystems & Empowering Communities</h1>
-    <p>landingpage.</p>
+    <p>Kerio Valley.</p>
   </div>
 </section>
 
 <main class="container">
 
-   <section id="about">
+  <section id="about">
     <h2>About Us</h2>
-    <p>Kerio Valley Conservancy (KVC) is a community-based organization dedicated to addressing poverty, climate vulnerability, and environmental degradation along the hanging Kerio Valley through sustainable, community-led solutions. Kerio Valley is a vital but fragile landscape in Kenya where people, nature, and livelihoods are closely connected, yet years of deforestation, unsustainable farming, recurrent fires, and climate stress have led to degraded soils, drying rivers, biodiversity loss, and rising poverty. Restoring these landscapes is transforming the valley through community-led agroforestry, reforestation, soil and water conservation, and climate-resilient farming that rebuilds ecosystems while improving household incomes.</p>
-
-    <div class="vision">
-      <h3>Our Vision</h3>
-      <p>To be a leading human and environment centered CBO in the region that provides inclusive, innovative, and sustainable programs and services aimed at improving individuals' and societies' wellbeing.</p>
-    </div>
-
-    <div class="mission">
-      <h3>Our Mission</h3>
-      <p>To protect people and the environment by promoting agroforestry and providing alternative sources of livelihood that foster peace and help halt pollution and climate change.</p>
-    </div>
+    <p>Kerio Valley Conservancy (KVC) is a community-based organization dedicated to addressing poverty, climate vulnerability, and environmental degradation along the hanging Kerio Valley through sustainable, community-led solutions.Kerio Valley is a vital but fragile landscape in Kenya where people, nature, and livelihoods are closely connected, yet years of deforestation, unsustainable farming, recurrent fires, and climate stress have led to degraded soils, drying rivers, biodiversity loss, and rising poverty. Restoring these landscapes is transforming the valley through community-led agroforestry, reforestation, soil and water conservation, and climate-resilient farming that rebuilds ecosystems while improving household incomes</p>
   </section>
 
   <section id="work">
@@ -358,53 +317,38 @@
     </div>
   </section>
 
- </section>
-
- <section id="members" class="container">
-
+  <section id="members">
     <h2>Our Members</h2>
-
     <div class="members-carousel">
-
-        <div class="member">
-            <img src="wesley.jpg" alt="Wesley Mutai">
-            <h4>Mr. Wesley Mutai</h4>
-            <p>Community Liaison Officer</p>
-        </div>
-
-        <div class="member">
-            <img src="sila.jpg" alt="Silah Kosgei">
-            <h4>Silah Kosgei</h4>
-            <p>Director – Field Team</p>
-        </div>
-
-        <div class="member">
-            <img src="julie.jpg" alt="Julie Jemutai">
-            <h4>Julie Jemutai</h4>
-            <p>Project Coordinator</p>
-        </div>
-
-        <div class="member">
-            <img src="Nik.jpg" alt="Nicholas Kibet">
-            <h4>Nicholas Kibet</h4>
-            <p>Advocacy Team Lead</p>
-        </div>
-
-        <div class="member">
-            <img src="Liz.jpg" alt="Elizabeth Munene">
-            <h4>Elizabeth Munene</h4>
-            <p>Treasurer</p>
-        </div>
-
-        <div class="member">
-            <img src="mercy.jpg" alt="Mercy Kiptoo">
-            <h4>Mercy Kiptoo</h4>
-            <p>Marketing Director</p>
-        </div>
-
+      </div>
+      <div class="member">
+        <img src="wesley.jpg" alt="Community LiasonOfficer" />
+        <h4>Mr. Wesley Mutai Community Liason Officer</h4>
+      </div>
+      <div class="member">
+        <img src="sila.jpg" alt="Member 2" />
+        <h4>Silah Kosgei  Director Field Team (Training Lead)</h4>
+      </div>
+      <div class="member">
+        <img src="julie.jpg" alt="Member 3" />
+        <h4>Julie Jemutai <br Project coordinator</br></h4>
+      </div>
+      <div class="member">
+        <img src="Nik.jpg" alt="Member 4" />
+        <h4>Nicholas Kibet  </br Advocacy Team Lead></h4>
+      </div>
+      <div class="member">
+        <img src="Liz.jpg" alt="Member 5" />
+        <h4>Elizabeth Munene </br Treasurer></h4>
+</h4>
+      </div>
+      <div class="member">
+        <img src="mercy.jpg" alt="Member 6" />
+        <h4>Mercy Kiptoo </br  Marketing Director (Cooperatives & Framers)br></h4>
+</h4>
+      </div>
     </div>
-
-</section>
+  </section>
 
   <section id="donor-reports">
     <h2>Donor Reports</h2>
