@@ -99,27 +99,58 @@
   }
 
   /* Hero */
-  .hero {
-    background: linear-gradient(rgba(45, 92, 42, 0.7), rgba(45, 92, 42, 0.9)),
-      url('kerio.jpg');
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: overlay;
-    color: black;
-    text-align: center;
-    padding: 5rem 1rem;
-    margin-bottom: 3rem;
-  }
+.hero {
+  background: linear-gradient(rgba(45, 92, 42, 0.7), rgba(45, 92, 42, 0.9)),
+    url('landingpage.jpg');
+  background-size: cover;          /* Ensures image covers entire hero section */
+  background-position: center;     /* Centers image */
+  background-repeat: no-repeat;    /* Prevents tiling */
+  background-blend-mode: overlay;  /* Dark overlay effect */
+  color: white;                    /* Text contrasts with image */
+  text-align: center;
+  padding: 6rem 1rem;              /* Slightly more vertical padding */
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;         /* Vertically centers content */
+  min-height: 80vh;                /* Makes hero at least 80% of viewport height */
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* stronger shadow for readability */
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .hero h1 {
-    font-size: 3.2rem;
-    margin-bottom: 1rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    font-size: 2.2rem;
   }
   .hero p {
-    font-size: 1.3rem;
-    max-width: 700px;
-    margin: 0 auto 2rem;
+    font-size: 1rem;
+    padding: 0 1rem;
   }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 4rem 1rem;
+  }
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  .hero p {
+    font-size: 0.95rem;
+  }
+}
 
   /* Sections */
   section {
